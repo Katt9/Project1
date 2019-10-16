@@ -1,0 +1,62 @@
+process_customer_order():
+  1) Read the table
+  2) Create list of customer orders
+  3) Iterate through each line of the table
+      3.1) Create CustomerOrderAttributes object
+      3.2) Determine if there is an existing Customer_Order object
+          3.2.1) If yes: add to approporiate Customer_Order object
+          3.2.2) If no: create new Customer_Order object, then append
+      3.3) Append Customer_Order to list of orders
+
+process invoice
+  1) Iterate through each Customer_Order in list_of_orders
+      1.1) check_inventory()
+      1.2) determine if inventory is sufficient
+          1.2.1) yes: update inventory_table to reflect new quantity
+          1.2.2) no: order new inventory
+
+
+product_id_list = [1045, 943, 2253]
+attributes_list = [
+    CustomerOrderAttributes(1045, 20, 4.00, "Northeast"),
+    CustomerOrderAttributes(...),
+    ...
+    ]
+
+Object: Customer Order
+Object's attributes: order_id, customer_id, attributes_list (list of CustomerOrderAttribute
+                                                              objects)
+Object functions:
+  append(attributes):
+      1) takes a CustomerOrdersAttribute object and appends it to
+      attributes_list
+  calculate_order_total():
+      1) set subtotal = 0
+      2) iterate through attributes_list
+          2.1) multiply qty * ppi
+          2.2) add to subtotal
+      3) return subtotal
+Obtain Cutomer Order properties
+Build function to get values from db object of Customer Order properties
+1) get_customer_order_data()
+2) gen_customer_order_
+
+Create a class CustomerOrderAttributes
+Store the product_id, the qty and price_per_item, and the region to help represent
+one line of the cutomer order table
+
+order_id = ""
+
+product_id = ""
+
+qty = 0
+
+price_per_item = 0
+
+region = ""
+
+customer_id = ""
+
+def process_customer_order():
+
+    pass
