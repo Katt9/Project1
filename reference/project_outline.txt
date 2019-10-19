@@ -43,7 +43,7 @@ Build function to get values from db object of Customer Order properties
 
 Create a class CustomerOrderAttributes
 Store the product_id, the qty and price_per_item, and the region to help represent
-one line of the cutomer order table
+one line of the customer order table
 
 order_id = ""
 
