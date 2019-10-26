@@ -22,3 +22,13 @@ class CustomerOrderAttributes:
         self.quantity = quantity
         self.price = price
         self.region = region
+
+
+class OrderInvoice:
+    def __init__(self, customer_id, order_id, total_price=0, fulfillment_days=2):
+        # initialize above, plus self.fulfillment_days
+        pass
+
+    def calculate_price(self, order_attributes):
+        # sum total of items in order_attributes
+        pass
