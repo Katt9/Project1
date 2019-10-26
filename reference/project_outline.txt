@@ -36,7 +36,7 @@ Object functions:
           2.1) multiply qty * ppi
           2.2) add to subtotal
       3) return subtotal
-Obtain Cutomer Order properties
+Obtain Customer Order properties
 Build function to get values from db object of Customer Order properties
 1) get_customer_order_data()
 2) gen_customer_order_

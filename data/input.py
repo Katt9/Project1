@@ -10,4 +10,3 @@ def read_table(filename):
     table_file = open(filename, 'r', encoding='utf-8-sig')
     lines = table_file.readlines()
     return [line.rstrip().split(',') for line in lines]
-    
