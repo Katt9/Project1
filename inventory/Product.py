@@ -4,15 +4,21 @@ from collections import defaultdict
 class Product:
     def __init__(self, product_id, quantity, region, shipping_time, batch_size):
         # initialize above variables
-        pass
+        self.product_id = product_id
+        self.quantity = quantity
+        self.region = region
+        self.shipping_time = shipping_time
+        self.batch_size = batch_size
 
     def check_inventory(self, amount):
         # check if self.quantity >= amount, return True or False
-        pass
+        if self.quantity >= amount:
+            return True
+        return False
 
     def place_order(self, amount):
         # reduce self.quantity by amount
-        pass
+        self.quantity -= amount
 
 
 class ProductList:

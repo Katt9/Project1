@@ -11,7 +11,9 @@ def read_input_tables():
 def main():
     customer_order_table, inventory_table = read_input_tables()
     customer_orders = gen_list_of_customer_orders(customer_order_table)
-    product_list =
+    product_list = gen_product_list(inventory_table)
+    dummy = 'blah'
+
 
 if __name__ == "__main__":
     main()
