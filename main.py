@@ -1,5 +1,5 @@
 from data.input import read_customer_order_table, read_inventory_table
-from modules.order_processing import gen_list_of_customer_orders, gen_product_list
+from modules.order_processing import gen_list_of_customer_orders#, gen_product_list
 
 
 def read_input_tables():
