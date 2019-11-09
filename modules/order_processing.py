@@ -34,3 +34,7 @@ def gen_list_of_customer_orders(customer_orders_table):
             customer_order = CustomerOrder(customer_order_id, customer_id)
             customer_orders_list.append(customer_order)
             customer_order.append(process_customer_order(line))
+
+# def gen_product_list():
+#
+#     pass
