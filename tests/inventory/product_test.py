@@ -50,7 +50,7 @@ def test_product_list_init():
     assert len(new_product_list.product_list) == 0
 
 def test_append():
-    # Review this test/assertions to make sure it makes sens
+    # Review this test/assertions to make sure it makes sense
     new_product_list = ProductList()
     new_mock_product = MockProduct("prod1", "North")
     new_product_list.append(new_mock_product)
@@ -62,3 +62,15 @@ def test_append():
     added_product = new_product_list.product_list['prod1']['North']
 
     assert added_product.product_id == "prod1"
+
+def test_get_product():
+    new_product_list = ProductList()
+    new_mock_product = MockProduct("prod1", "North")
+    new_product_list.append(new_mock_product)
+
+    var1 = new_product_list.get_product(new_mock_product.product_id, new_mock_product.region)
+
+    # assert 1 == 1
+
+    assert "prod1" == var1.product_id
+    assert "North" == var1.region
