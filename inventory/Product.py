@@ -1,5 +1,7 @@
 from collections import defaultdict
 
+class InsufficientInventoryException(Exception):
+    pass
 
 class Product:
     def __init__(self, product_id, quantity, region, shipping_time, batch_size):
@@ -17,6 +19,10 @@ class Product:
         return False
 
     def place_order(self, amount):
+        # validate quantity >= amount
+        if not self.check_inventory(amount):
+            raise InsufficientInventoryException("Not enough inventory to place order")
+
         # reduce self.quantity by amount
         self.quantity -= amount
 
