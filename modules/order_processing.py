@@ -1,4 +1,4 @@
-from orders.CustomerOrder import CustomerOrder, CustomerOrderAttributes
+from orders.CustomerOrder import CustomerOrder, CustomerOrderLine, OrderInvoice
 from inventory.Product import ProductList, Product
 
 
@@ -9,7 +9,7 @@ def process_customer_order(order):
     price = order[3]
     region = order[4]
     # fill in the rest for qty, price, region, order_id
-    attributes = CustomerOrderAttributes(product_id, qty, price, region)
+    attributes = CustomerOrderLine(product_id, qty, price, region)
     # return customer orders attributes objects
     return attributes
 
@@ -81,8 +81,23 @@ def create_product(line):
 
 
 def process_inventory(customer_orders_list, product_list):
+
     #1. create list of invoices, list of resupply orders
+    invoices_list = []
     #2. Iterate through customer_orders_list. For each order object:
+    for customer_order in customer_orders_list:
+        order_total = customer_order.calculate_order_total()
+        invoice = OrderInvoice(customer_order.customer_id, customer_order.order_id, order_total)
+        for order_line in customer_order.order_line:
+            correct_product = product_list.get_product(order_line.product_id, order_line.region)
+            is_sufficient = correct_product.check_inventory(order_line.quantity)
+            if is_sufficient:
+                correct_product.place_order(order_line.quantity)
+            else:
+                pass
+
+    return
+
         #2.1 create invoice object, calculate price
         #2.2. Iterate through each line in the attributes_list. For each item:
             #2.2.1. find correct product in product_list
@@ -90,7 +105,9 @@ def process_inventory(customer_orders_list, product_list):
                 #2.2.2.1. if True, place_order
                 #2.2.2.2. else create or update resupply order object, update days to fulfillment
     #3. return resupply orders list, invoice list
-    pass
 
+def get_correct_product():
+
+    pass
 #
 #

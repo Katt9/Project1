@@ -3,19 +3,19 @@ class CustomerOrder:
         # initialize self.order_id, self.customer_id, and self.attributes_list
         self.order_id = order_id
         self.customer_id = customer_id
-        self.attributes_list = []
+        self.order_line = []
     
     def append(self, attributes):
-        self.attributes_list.append(attributes)
+        self.order_line.append(attributes)
     
     def calculate_order_total(self):
         subtotal = 0
-        for attribute in self.attributes_list:
+        for attribute in self.order_line:
             subtotal += attribute.quantity * attribute.price
         return subtotal
     
     
-class CustomerOrderAttributes:
+class CustomerOrderLine:
     def __init__(self, product_id, quantity, price, region):
         # initialize self.product_id, self.quantity, self.price, self.region
         self.product_id = product_id
@@ -27,8 +27,13 @@ class CustomerOrderAttributes:
 class OrderInvoice:
     def __init__(self, customer_id, order_id, total_price=0, fulfillment_days=2):
         # initialize above, plus self.fulfillment_days
-        pass
+        self.customer_id = customer_id
+        self.order_id = order_id
+        self.total_price = total_price
+        self.fulfillment_days = fulfillment_days
 
     def calculate_price(self, order_attributes):
+
         # sum total of items in order_attributes
+        self.total_price = self.price
         pass
