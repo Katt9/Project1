@@ -1,4 +1,5 @@
 from orders.CustomerOrder import CustomerOrder, CustomerOrderAttributes
+from inventory.Product import ProductList, Product
 
 
 def process_customer_order(order):
@@ -59,12 +60,24 @@ def add_to_existing_order(line, customer_orders_list):
             customer_order_object.append(process_customer_order(line))
 
 def gen_product_list(inventory_table):
-    #1. Create ProductList object
-    #2. Iterate through inventory_table. For each item:
-        #2.1. Create Product object
-        #2.2. Add Product object to list
-    #3. Return list
-    pass
+
+    product_list = ProductList()
+    # line -> [1045, 50 ,Northeast, 5, 100]
+
+    for line in inventory_table:
+        product_list.append(create_product(line))
+    return product_list
+
+def create_product(line):
+
+    product_id = line[0]
+    quantity = line[1]
+    region = line[2]
+    shipping_time = line[3]
+    batch_size = line[4]
+    product = Product(product_id, quantity, region, shipping_time, batch_size)
+
+    return product
 
 
 def process_inventory(customer_orders_list, product_list):
