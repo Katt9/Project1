@@ -7,10 +7,10 @@ class Product:
     def __init__(self, product_id, quantity, region, shipping_time, batch_size):
         # initialize above variables
         self.product_id = product_id
-        self.quantity = quantity
+        self.quantity = int(quantity)
         self.region = region
-        self.shipping_time = shipping_time
-        self.batch_size = batch_size
+        self.shipping_time = int(shipping_time)
+        self.batch_size = int(batch_size)
 
     def check_inventory(self, amount):
         # check if self.quantity >= amount, return True or False

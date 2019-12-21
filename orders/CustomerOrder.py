@@ -19,8 +19,8 @@ class CustomerOrderLine:
     def __init__(self, product_id, quantity, price, region):
         # initialize self.product_id, self.quantity, self.price, self.region
         self.product_id = product_id
-        self.quantity = quantity
-        self.price = price
+        self.quantity = int(quantity)
+        self.price = float(price)
         self.region = region
 
 
@@ -31,9 +31,3 @@ class OrderInvoice:
         self.order_id = order_id
         self.total_price = total_price
         self.fulfillment_days = fulfillment_days
-
-    def calculate_price(self, order_attributes):
-
-        # sum total of items in order_attributes
-        self.total_price = self.price
-        pass

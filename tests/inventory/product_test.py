@@ -4,12 +4,12 @@ from inventory.Product import Product, InsufficientInventoryException, ProductLi
 
 
 def test_init():
-    new_product = Product("1", "2", "South", "5 AM", "6")
+    new_product = Product("1", "2", "South", "5", "6")
     assert new_product.product_id == "1"
-    assert new_product.quantity == "2"
+    assert new_product.quantity == 2
     assert new_product.region == "South"
-    assert new_product.shipping_time == "5 AM"
-    assert new_product.batch_size == "6"
+    assert new_product.shipping_time == 5
+    assert new_product.batch_size == 6
 
 
 class MockProduct:
@@ -23,7 +23,7 @@ class MockProduct:
     pytest.param(2, True)
 ])
 def test_check_inventory(amount, expected_response):
-    new_product = Product("1", 2, "South", "5 AM", "6")
+    new_product = Product("1", 2, "South", 5, 6)
     assert new_product.check_inventory(amount) is expected_response
 
 
@@ -33,12 +33,12 @@ def test_check_inventory(amount, expected_response):
     pytest.param(7, 3)
 ])
 def test_place_order(amount, expected_response):
-    new_product = Product("1", 10, "South", "5 AM", "6")
+    new_product = Product("1", 10, "South", 5, 6)
     new_product.place_order(amount)
     assert new_product.quantity == expected_response
 
 def test_place_order_exception():
-    new_product = Product("1", 10, "South", "5 AM", "6")
+    new_product = Product("1", 10, "South", 5, 6)
     #new_product.place_order(15)
     with pytest.raises(InsufficientInventoryException) as ex:
         new_product.place_order(15)
